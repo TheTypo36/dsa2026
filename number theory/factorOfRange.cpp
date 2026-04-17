@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> rangeFactor(int &n)
+vector<vector<int>> rangeFactor(int n)
 {
 
     vector<vector<int>> factors(n + 1);
@@ -10,7 +10,7 @@ vector<vector<int>> rangeFactor(int &n)
     {
         for (int j = i; j <= n; j += i)
         {
-            factors[i].push_back(j);
+            factors[j].push_back(1);
         }
     }
 

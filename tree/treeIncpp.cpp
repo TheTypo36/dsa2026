@@ -88,6 +88,16 @@ void display_bfs(struct node *root)
         cout << endl;
     }
 }
+int maxDepth(node *root)
+{
+    if (root == NULL)
+        return 0;
+
+    int left = maxDepth(root->left);
+    int right = maxDepth(root->right);
+    int ans = max(left, right) + 1;
+    return ans;
+}
 int main()
 {
     struct node *root = new node(1);
@@ -107,5 +117,7 @@ int main()
     cout << endl;
 
     display_bfs(root);
+
+   cout << maxDepth(root) << endl;
     return 0;
 }
