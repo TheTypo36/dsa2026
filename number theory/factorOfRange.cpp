@@ -10,7 +10,7 @@ vector<vector<int>> rangeFactor(int n)
     {
         for (int j = i; j <= n; j += i)
         {
-            factors[j].push_back(1);
+            factors[j].push_back(i);
         }
     }
 
@@ -21,13 +21,18 @@ int main()
     int n;
     cin >> n;
     vector<vector<int>> ans = rangeFactor(n);
+
     for (auto &i : ans)
     {
-        for (auto &j : i)
+        if (i.size() > 0)
         {
-            cout << j << " ";
+
+            for (auto &j : i)
+            {
+                cout << j <<" ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
     return 0;
 }
