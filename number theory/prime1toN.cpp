@@ -24,7 +24,31 @@ void optimisedButNotSieve(int n)
         }
     }
 }
+void sieveOfEra(int n)
+{
+    vector<bool> sieve(n + 1, true);
+    sieve[0] = sieve[1] = false;
+    for (int i = 2; i * i <= n; i++)
+    {
+        for (int j = i * i; j <= n; j += i)
+        {
+            sieve[j] = false;
+        }
+    }
+    int count = 0;
+    for (int i = 2; i <= n; i++)
+    {
+        if (sieve[i])
+        {
+            cout << i << " ";
+            count++;
+        }
+    }
+    cout << endl;
+    cout << count << endl;
+}
 void SieveOfEratothenes(int n)
+
 {
     vector<bool> sieve(n + 1, true);
     sieve[0] = sieve[1] = false;
@@ -51,9 +75,5 @@ int main()
 {
     int n;
     cin >> n;
-    optimisedButNotSieve(n);
-    cout << endl;
-    cout << "***********************************" << endl;
-    SieveOfEratothenes(n);
-    cout << endl;
+    sieveOfEra(n);
 }
